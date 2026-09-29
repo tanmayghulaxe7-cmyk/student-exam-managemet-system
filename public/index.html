@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>College Exam Timetable - Examination Management System</title>
+  <meta name="description" content="View and manage college examination timetables easily." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .hero-section {
+      text-align: center;
+      padding: 4.5rem 1rem 3rem 1rem;
+      background: radial-gradient(circle at 50% 0%, #eff6ff 0%, transparent 70%);
+      border-radius: var(--radius-lg);
+      margin-bottom: 2.5rem;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #e0e7ff;
+      color: #3730a3;
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+    }
+    .hero-title {
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .hero-title span {
+      color: #2563eb;
+    }
+    .hero-description {
+      font-size: 1.2rem;
+      color: #475569;
+      max-width: 680px;
+      margin: 0 auto 2.25rem auto;
+    }
+    .action-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .role-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 2rem 1.75rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .role-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .role-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 1.25rem auto;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+    }
+    .role-card-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .role-card-desc {
+      color: var(--text-secondary);
+      font-size: 0.925rem;
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+    .role-btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .feature-item {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+    }
+    .feature-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--primary);
+    }
+    .feature-title {
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .feature-text {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <span class="brand-icon">&#128218;</span>
+        <span>College Exam Timetable</span>
+      </a>
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Hero -->
+  <main class="main-content">
+    <section class="hero-section">
+      <div class="hero-badge">&#10024; Academic Schedule Portal</div>
+      <h1 class="hero-title">College Exam <span>Timetable</span></h1>
+      <p class="hero-description">
+        View and manage college examination timetables easily.
+      </p>
+
+      <!-- Role Access Action Cards -->
+      <div class="action-grid">
+        <!-- Student Portal -->
+        <div class="role-card">
+          <div class="role-icon" style="background: #eff6ff; color: #2563eb;">&#127891;</div>
+          <h2 class="role-card-title">Student Portal</h2>
+          <p class="role-card-desc">
+            View your class examination timetable strictly filtered for your enrolled Year and Section.
+          </p>
+          <div class="role-btn-group">
+            <a href="login.html?role=student" class="btn btn-primary">Student Login</a>
+            <a href="register.html?role=student" class="btn btn-outline">Student Register</a>
+          </div>
+        </div>
+
+        <!-- Admin Portal -->
+        <div class="role-card">
+          <div class="role-icon" style="background: #fdf2f8; color: #db2777;">&#128188;</div>
+          <h2 class="role-card-title">Admin Portal</h2>
+          <p class="role-card-desc">
+            Add exams, oversee comprehensive college timetables, and manage scheduled exams.
+          </p>
+          <div class="role-btn-group">
+            <a href="login.html?role=admin" class="btn btn-primary" style="background-color: #0f172a; border-color: #0f172a;">Admin Login</a>
+            <a href="register.html?role=admin" class="btn btn-outline">Admin Register</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Architecture Features -->
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon">&#128274;</div>
+        <div class="feature-title">Backend Filtering Guarantee</div>
+        <p class="feature-text">Strict server-side JWT authorization ensures students only access exams matching their registered Year and Section.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">&#9889;</div>
+        <div class="feature-title">Real-Time Management</div>
+        <p class="feature-text">Admins can schedule subjects with dates and times, immediately reflected for the designated student cohorts.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">&#128100;</div>
+        <div class="feature-title">User Profile System</div>
+        <p class="feature-text">Students and Admins can view profile details and securely update their name and password with bcrypt encryption.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 College Exam Timetable Management System. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

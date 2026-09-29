@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Admin User",
+    "email": "test_admin@college.edu",
+    "password": "$2b$10$uMtNYloBh5qNp49qdW7m4uoXUZyYi89mWd6PTazWYBv.AxFGqyIhe",
+    "role": "admin",
+    "year": null,
+    "section": null,
+    "createdAt": "2026-09-29T08:06:51.016Z",
+    "_id": "id_m2lhxu70pmume7q14"
+  },
+  {
+    "name": "Admin",
+    "email": "admin@gmail.com",
+    "password": "$2b$10$2G0BEGsei/inGTrgW3EKv.8zn.IoGn1spGZvg4KfqtILx0fhaGahe",
+    "role": "admin",
+    "year": null,
+    "section": null,
+    "createdAt": "2026-09-29T08:06:51.031Z",
+    "_id": "id_og152ktgdmume7q1j"
+  },
+  {
+    "name": "Student A",
+    "email": "studentA@gmail.com",
+    "password": "$2b$10$9CAGupY32UYI7cTtHGPMnePDoH.XTH8/5lHVCn/lQzWYlHciVFMhW",
+    "role": "student",
+    "year": "3rd Year",
+    "section": "A",
+    "createdAt": "2026-09-29T08:06:51.031Z",
+    "_id": "id_mobecg4y7mume7q1j"
+  },
+  {
+    "name": "Student B",
+    "email": "studentB@gmail.com",
+    "password": "$2b$10$9CAGupY32UYI7cTtHGPMnePDoH.XTH8/5lHVCn/lQzWYlHciVFMhW",
+    "role": "student",
+    "year": "3rd Year",
+    "section": "B",
+    "createdAt": "2026-09-29T08:06:51.031Z",
+    "_id": "id_ysyha3jjkmume7q1j"
+  },
+  {
+    "name": "Student A Updated",
+    "email": "student_a_test@college.edu",
+    "password": "$2b$10$R6mxmkBYmA0Orx9X6r8hiuehsIvg.ZnuXCdapR1PPqEqL4WTwrOR.",
+    "role": "student",
+    "year": "3rd Year",
+    "section": "A",
+    "createdAt": "2026-09-29T08:06:51.336Z",
+    "_id": "id_ogul54tyvmume7qa0"
+  },
+  {
+    "name": "Student B Test",
+    "email": "student_b_test@college.edu",
+    "password": "$2b$10$mk.04b/RoGi4qUpQmkfGRuTFSJP0/bgyg6kwae2EnR7Tb2p7vDSHq",
+    "role": "student",
+    "year": "3rd Year",
+    "section": "B",
+    "createdAt": "2026-09-29T08:07:14.227Z",
+    "_id": "id_v2gs0t0dsmume87xv"
+  },
+  {
+    "name": "Admin User",
+    "email": "admin_1790669263738@college.edu",
+    "password": "$2b$10$TnWnc8FOI4nQX9DPtxULMuJSplB2UhC59T9yAiVDKvmCOTKaZjtV.",
+    "role": "admin",
+    "year": null,
+    "section": null,
+    "createdAt": "2026-09-29T08:07:43.897Z",
+    "_id": "id_n84244lt4mume8uu1"
+  },
+  {
+    "name": "Student A Updated",
+    "email": "student_a_1790669263738@college.edu",
+    "password": "$2b$10$JeQlob5toy2j8IekAclN5.Nk/ydu3FwV1vzP/LNKIz0TWPw2O3wou",
+    "role": "student",
+    "year": "3rd Year",
+    "section": "A",
+    "createdAt": "2026-09-29T08:07:44.204Z",
+    "_id": "id_9ckqkjqz1mume8v2k"
+  },
+  {
+    "name": "Student B Test",
+    "email": "student_b_1790669263738@college.edu",
+    "password": "$2b$10$g979PhaqP2mU1H9wP3jge.qFTDrz1Xl9JD39Lz3Wu2cCbKnA/PBQ2",
+    "role": "student",
+    "year": "3rd Year",
+    "section": "B",
+    "createdAt": "2026-09-29T08:07:44.475Z",
+    "_id": "id_jt5blwnupmume8va3"
+  }
+]

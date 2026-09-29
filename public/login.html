@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - College Exam Timetable</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <span class="brand-icon">&#128218;</span>
+        <span>College Exam Timetable</span>
+      </a>
+      <div class="nav-actions">
+        <a href="index.html" class="btn btn-outline btn-sm">Home</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Login Card Form -->
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="auth-logo">&#128272;</div>
+        <h1 class="auth-title">Welcome Back</h1>
+        <p class="auth-subtitle">Sign in to access your college exam timetable</p>
+      </div>
+
+      <!-- Alert Container -->
+      <div id="authAlertContainer"></div>
+
+      <!-- Role Selector -->
+      <label class="form-label" style="text-align: center; margin-bottom: 0.5rem;">Select Your Role</label>
+      <div class="role-toggle-group">
+        <button type="button" class="role-toggle-btn active" data-role="student">&#127891; Student</button>
+        <button type="button" class="role-toggle-btn" data-role="admin">&#128188; Admin</button>
+      </div>
+
+      <!-- Form -->
+      <form id="loginForm">
+        <input type="hidden" id="roleInput" name="role" value="student" />
+
+        <div class="form-group">
+          <label for="email" class="form-label">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            placeholder="e.g. student@college.edu"
+            required
+            autocomplete="email"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+            placeholder="Enter your password"
+            required
+            autocomplete="current-password"
+          />
+        </div>
+
+        <button type="submit" id="loginSubmitBtn" class="btn btn-primary btn-block" style="margin-top: 1.5rem;">
+          Login
+        </button>
+      </form>
+
+      <!-- Quick Demo Accounts for Testing -->
+      <div style="margin-top: 1.5rem; background: #f8fafc; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.85rem; font-size: 0.825rem;">
+        <span style="font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.4rem;">Demo Accounts Quick Fill:</span>
+        <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+          <button type="button" class="btn btn-outline btn-sm" onclick="fillLogin('admin@gmail.com', 'Admin@123', 'admin')" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;">
+            Admin
+          </button>
+          <button type="button" class="btn btn-outline btn-sm" onclick="fillLogin('studentA@gmail.com', 'Student@123', 'student')" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;">
+            Student A (3rd Year, Sec A)
+          </button>
+          <button type="button" class="btn btn-outline btn-sm" onclick="fillLogin('studentB@gmail.com', 'Student@123', 'student')" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;">
+            Student B (3rd Year, Sec B)
+          </button>
+        </div>
+      </div>
+
+      <div class="auth-footer">
+        <p>Don't have an account yet? <a href="register.html">Create Account</a></p>
+        <div class="auth-links" style="justify-content: center; margin-top: 0.85rem;">
+          <a href="index.html" style="color: var(--text-muted); font-size: 0.85rem;">&larr; Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 College Exam Timetable Management System</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

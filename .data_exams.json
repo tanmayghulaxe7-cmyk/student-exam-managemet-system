@@ -1,0 +1,110 @@
+[
+  {
+    "subject": "Java",
+    "year": "3rd Year",
+    "section": "A",
+    "examDate": "2026-10-10",
+    "examTime": "10:00 AM",
+    "createdAt": "2026-09-29T08:06:51.032Z",
+    "_id": "id_7z34buxvbmume7q1k"
+  },
+  {
+    "subject": "DBMS",
+    "year": "3rd Year",
+    "section": "A",
+    "examDate": "2026-10-12",
+    "examTime": "10:00 AM",
+    "createdAt": "2026-09-29T08:06:51.032Z",
+    "_id": "id_6vi4kyngbmume7q1k"
+  },
+  {
+    "subject": "Operating System",
+    "year": "3rd Year",
+    "section": "B",
+    "examDate": "2026-10-14",
+    "examTime": "02:00 PM",
+    "createdAt": "2026-09-29T08:06:51.032Z",
+    "_id": "id_qyf2tyvh8mume7q1k"
+  },
+  {
+    "subject": "Computer Networks",
+    "year": "3rd Year",
+    "section": "B",
+    "examDate": "2026-10-16",
+    "examTime": "10:00 AM",
+    "createdAt": "2026-09-29T08:06:51.032Z",
+    "_id": "id_wrvej6klomume7q1k"
+  },
+  {
+    "subject": "Computer Network",
+    "year": "2nd Year",
+    "section": "A",
+    "examDate": "2026-10-18",
+    "examTime": "10:00 AM",
+    "createdAt": "2026-09-29T08:06:51.032Z",
+    "_id": "id_mfb5tq2clmume7q1k"
+  },
+  {
+    "subject": "Java Test",
+    "year": "3rd Year",
+    "section": "A",
+    "examDate": "2026-10-10",
+    "examTime": "10:00 AM",
+    "createdAt": "2026-09-29T08:06:51.156Z",
+    "_id": "id_2k8u46i73mume7q50"
+  },
+  {
+    "subject": "DBMS Test",
+    "year": "3rd Year",
+    "section": "A",
+    "examDate": "2026-10-12",
+    "examTime": "10:00 AM",
+    "createdAt": "2026-09-29T08:06:51.171Z",
+    "_id": "id_2s74sb20umume7q5f"
+  },
+  {
+    "subject": "Computer Networks Test",
+    "year": "3rd Year",
+    "section": "B",
+    "examDate": "2026-10-14",
+    "examTime": "10:00 AM",
+    "createdAt": "2026-09-29T08:06:51.177Z",
+    "_id": "id_cwn8getrhmume7q5l"
+  },
+  {
+    "subject": "DBMS Test",
+    "year": "3rd Year",
+    "section": "A",
+    "examDate": "2026-10-12",
+    "examTime": "10:00 AM",
+    "createdAt": "2026-09-29T08:07:13.965Z",
+    "_id": "id_duth2dujsmume87ql"
+  },
+  {
+    "subject": "Computer Networks Test",
+    "year": "3rd Year",
+    "section": "B",
+    "examDate": "2026-10-14",
+    "examTime": "10:00 AM",
+    "createdAt": "2026-09-29T08:07:13.970Z",
+    "_id": "id_3r5zkanwfmume87qq"
+  },
+  {
+    "subject": "DBMS Test",
+    "year": "3rd Year",
+    "section": "A",
+    "examDate": "2026-10-12",
+    "examTime": "10:00 AM",
+    "createdAt": "2026-09-29T08:07:44.036Z",
+    "_id": "id_lshqmp2yfmume8uxw"
+  },
+  {
+    "subject": "Computer Networks Test",
+    "year": "3rd Year",
+    "section": "B",
+    "examDate": "2026-10-14",
+    "examTime": "10:00 AM",
+    "createdAt": "2026-09-29T08:07:44.041Z",
+    "_id": "id_5n8wikuf7mume8uy1"
+  }
+]

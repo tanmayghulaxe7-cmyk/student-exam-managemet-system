@@ -1,0 +1,6 @@
+{
+  "name": "College Exam Timetable",
+  "description": "College Examination Timetable Management System with role-based access for Admins and Students, timetable filtering, and Google Drive export.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

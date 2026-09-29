@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard - College Exam Timetable</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="admin-dashboard.html" class="brand-logo">
+        <span class="brand-icon">&#128188;</span>
+        <span>College Exam Timetable <small style="font-size: 0.75rem; color: #2563eb; font-weight: 600; margin-left: 4px;">ADMIN</small></span>
+      </a>
+      <div class="nav-actions">
+        <button type="button" id="openProfileBtn" class="btn btn-outline btn-sm">
+          &#128100; My Profile
+        </button>
+        <button type="button" id="logoutBtn" class="btn btn-outline btn-sm" style="color: var(--danger); border-color: #fecaca;">
+          Logout
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Admin Header Banner -->
+    <div class="dashboard-header">
+      <div>
+        <h1 class="user-welcome-title">Admin Dashboard</h1>
+        <p class="user-welcome-subtitle">
+          Welcome, <strong id="welcomeUserName">Administrator</strong>
+          <span class="badge badge-purple" style="margin-left: 0.5rem;">System Admin</span>
+        </p>
+      </div>
+      <div>
+        <span id="totalExamsBadge" class="badge badge-blue" style="font-size: 0.95rem; padding: 0.4rem 0.9rem;">
+          Loading...
+        </span>
+      </div>
+    </div>
+
+    <!-- Alert Container -->
+    <div id="adminAlertContainer"></div>
+
+    <!-- 1. Add Exam Card Form -->
+    <section class="card">
+      <div class="card-header">
+        <div>
+          <h2 class="card-title">Schedule New Examination</h2>
+          <p class="card-subtitle">Add subject examination schedule for specific academic year and section</p>
+        </div>
+      </div>
+
+      <div id="addExamAlertContainer"></div>
+
+      <form id="addExamForm">
+        <div class="form-grid">
+          <!-- Subject Name -->
+          <div class="form-group">
+            <label for="subject" class="form-label">Subject Name</label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              class="form-control"
+              placeholder="e.g. Java, DBMS, Networks"
+              required
+            />
+          </div>
+
+          <!-- Academic Year -->
+          <div class="form-group">
+            <label for="examYear" class="form-label">Year of Study</label>
+            <select id="examYear" name="year" class="form-control" required>
+              <option value="" disabled selected>Select Year</option>
+              <option value="1st Year">1st Year</option>
+              <option value="2nd Year">2nd Year</option>
+              <option value="3rd Year">3rd Year</option>
+              <option value="4th Year">4th Year</option>
+            </select>
+          </div>
+
+          <!-- Section -->
+          <div class="form-group">
+            <label for="examSection" class="form-label">Class Section</label>
+            <select id="examSection" name="section" class="form-control" required>
+              <option value="" disabled selected>Select Section</option>
+              <option value="A">Section A</option>
+              <option value="B">Section B</option>
+              <option value="C">Section C</option>
+            </select>
+          </div>
+
+          <!-- Exam Date -->
+          <div class="form-group">
+            <label for="examDate" class="form-label">Exam Date</label>
+            <input
+              type="date"
+              id="examDate"
+              name="examDate"
+              class="form-control"
+              required
+            />
+          </div>
+
+          <!-- Exam Time -->
+          <div class="form-group">
+            <label for="examTime" class="form-label">Exam Time</label>
+            <input
+              type="text"
+              id="examTime"
+              name="examTime"
+              class="form-control"
+              placeholder="e.g. 10:00 AM, 02:00 PM"
+              required
+            />
+          </div>
+        </div>
+
+        <div style="margin-top: 1rem; display: flex; justify-content: flex-end;">
+          <button type="submit" id="addExamBtn" class="btn btn-primary">
+            + Add Exam
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- 2. All Examination Timetable Table -->
+    <section class="card">
+      <div class="card-header">
+        <div>
+          <h2 class="card-title">All Examination Timetable</h2>
+          <p class="card-subtitle">Master schedule of all examinations across all departments and cohorts</p>
+        </div>
+      </div>
+
+      <!-- Toolbar with quick search -->
+      <div class="table-toolbar">
+        <input
+          type="text"
+          id="tableSearchInput"
+          class="form-control table-search-input"
+          placeholder="Filter by subject or year..."
+        />
+        <button type="button" class="btn btn-outline btn-sm" onclick="loadAllExams()">
+          &#8635; Refresh Timetable
+        </button>
+      </div>
+
+      <!-- Loading State -->
+      <div id="loadingIndicator" class="loading-spinner">
+        Loading examination schedule...
+      </div>
+
+      <!-- Table -->
+      <div id="tableContainer" class="table-responsive" style="display: none;">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Year</th>
+              <th>Section</th>
+              <th>Exam Date</th>
+              <th>Exam Time</th>
+              <th style="text-align: right;">Action</th>
+            </tr>
+          </thead>
+          <tbody id="examTableBody">
+            <!-- Dynamically populated rows -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Empty State -->
+      <div id="emptyState" class="empty-state" style="display: none;">
+        <div class="empty-state-icon">&#128197;</div>
+        <h3>No Examinations Scheduled</h3>
+        <p>No exams have been added yet. Use the form above to add an exam to the college timetable.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Delete Confirmation Modal (no window.confirm) -->
+  <div id="deleteConfirmModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="card-title" style="color: var(--danger); font-size: 1.15rem;">Confirm Delete Exam</h3>
+        <button type="button" class="modal-close-btn" id="cancelDeleteModalIconBtn" onclick="document.getElementById('cancelDeleteBtn').click()">&times;</button>
+      </div>
+      <p style="margin-bottom: 1.25rem; color: var(--text-secondary);">
+        Are you sure you want to delete the examination for:
+        <br />
+        <strong id="deleteExamSubjectLabel" style="font-size: 1.1rem; color: var(--text-primary); display: inline-block; margin-top: 0.4rem;"></strong>?
+      </p>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+        This action cannot be undone and will immediately remove this exam from student dashboards.
+      </p>
+      <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+        <button type="button" id="cancelDeleteBtn" class="btn btn-outline">Cancel</button>
+        <button type="button" id="confirmDeleteBtn" class="btn btn-danger">Delete Exam</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Profile Modal (View & Edit Name / Password) -->
+  <div id="profileModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="card-title">My Account Profile</h3>
+        <button type="button" id="closeProfileBtn" class="modal-close-btn">&times;</button>
+      </div>
+
+      <div id="profileAlertContainer"></div>
+
+      <!-- Current Profile Details View -->
+      <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem; margin-bottom: 1.5rem; font-size: 0.9rem;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+          <span style="color: var(--text-secondary); font-weight: 600;">Full Name:</span>
+          <span id="profileViewName" style="font-weight: 700; color: var(--text-primary);"></span>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+          <span style="color: var(--text-secondary); font-weight: 600;">Email:</span>
+          <span id="profileViewEmail" style="color: var(--text-primary);"></span>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <span style="color: var(--text-secondary); font-weight: 600;">Role:</span>
+          <span id="profileViewRole" class="badge badge-purple"></span>
+        </div>
+      </div>
+
+      <!-- Edit Form -->
+      <form id="profileUpdateForm">
+        <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text-primary);">Update Details</h4>
+
+        <div class="form-group">
+          <label for="profileEditName" class="form-label">Full Name</label>
+          <input
+            type="text"
+            id="profileEditName"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div style="border-top: 1px dashed var(--border); margin: 1.25rem 0 1rem 0; padding-top: 1rem;">
+          <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.3rem;">
+            Change Password (Optional)
+          </h4>
+          <small style="color: var(--text-muted); display: block; margin-bottom: 0.85rem;">
+            Leave blank if you do not want to change your password.
+          </small>
+
+          <div class="form-group">
+            <label for="profileCurrentPassword" class="form-label">Current Password</label>
+            <input
+              type="password"
+              id="profileCurrentPassword"
+              class="form-control"
+              placeholder="Required to change password"
+              autocomplete="current-password"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="profileNewPassword" class="form-label">New Password</label>
+            <input
+              type="password"
+              id="profileNewPassword"
+              class="form-control"
+              placeholder="Minimum 6 characters"
+              autocomplete="new-password"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="profileConfirmNewPassword" class="form-label">Confirm New Password</label>
+            <input
+              type="password"
+              id="profileConfirmNewPassword"
+              class="form-control"
+              placeholder="Confirm new password"
+              autocomplete="new-password"
+            />
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.25rem;">
+          <button type="button" class="btn btn-outline" onclick="closeProfileModal()">Cancel</button>
+          <button type="submit" id="saveProfileBtn" class="btn btn-primary">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 College Exam Timetable Management System &bull; Admin Portal</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
